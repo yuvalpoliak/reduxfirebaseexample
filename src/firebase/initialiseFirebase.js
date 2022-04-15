@@ -1,5 +1,8 @@
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
+import store from "../redux/store";
+import firebase from 'firebase/app'
+import { createFirestoreInstance } from "redux-firestore";
 
 const firebaseConfig = {
   apiKey: "AIzaSyD60k5XxN6ihwLulE2bUVxgG6FjEayplVY",
@@ -12,4 +15,16 @@ const firebaseConfig = {
 };
 
 export const initialiseFirebase = initializeApp(firebaseConfig);
-export const analytics = getAnalytics(initialiseFirebase);
+const analytics = getAnalytics(initialiseFirebase);
+firebase.firestore()
+
+export const reactReduxFirebaseConfig = {
+  userProfile: 'users'
+}
+
+export const reactReduxFirebaseProps = {
+  firebase,
+  createFirestoreInstance,
+  config: reactReduxFirebaseConfig,
+  dispatch: store.dispatch
+}

@@ -6,17 +6,7 @@ import reportWebVitals from './reportWebVitals';
 import { Provider } from 'react-redux';
 import { ReactReduxFirebaseProvider } from 'react-redux-firebase';
 import store from './redux/store';
-import firebase from 'firebase/app'
-
-const reactReduxFirebaseConfig = {
-  userProfile: 'users'
-}
-
-const reactReduxFirebaseProps = {
-  firebase,
-  config: reactReduxFirebaseConfig,
-  dispatch: store.dispatch
-}
+import { reactReduxFirebaseProps } from './firebase/initialiseFirebase';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
